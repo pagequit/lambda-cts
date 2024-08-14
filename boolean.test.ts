@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { TRUE, FALSE, NOT, AND, OR, IF, XOR } from "./index.ts";
+import { AND, FALSE, IF, NOT, OR, TRUE, XOR } from "./index.ts";
 
 test("TRUE", () => {
 	expect(TRUE(TRUE)(FALSE)).toBe(TRUE);
