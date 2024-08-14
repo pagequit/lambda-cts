@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { TRUE, FALSE, NOT, AND, OR } from "./index.ts";
+import { TRUE, FALSE, NOT, AND, OR, IF, XOR } from "./index.ts";
 
 test("TRUE", () => {
 	expect(TRUE(TRUE)(FALSE)).toBe(TRUE);
@@ -26,4 +26,16 @@ test("OR", () => {
 	expect(OR(TRUE)(FALSE)).toBe(TRUE);
 	expect(OR(FALSE)(TRUE)).toBe(TRUE);
 	expect(OR(FALSE)(FALSE)).toBe(FALSE);
+});
+
+test("IF", () => {
+	expect(IF(TRUE)(TRUE)(FALSE)).toBe(TRUE);
+	expect(IF(FALSE)(TRUE)(FALSE)).toBe(FALSE);
+});
+
+test("XOR", () => {
+	expect(XOR(TRUE)(TRUE)).toBe(FALSE);
+	expect(XOR(TRUE)(FALSE)).toBe(TRUE);
+	expect(XOR(FALSE)(TRUE)).toBe(TRUE);
+	expect(XOR(FALSE)(FALSE)).toBe(FALSE);
 });
